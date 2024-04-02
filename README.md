@@ -47,21 +47,22 @@ Debug 모드이므로 하단의 DEBUG CONSOLE에서 출력 및 동작을 확인할 수 있습니다.
 ### 결과 화면
 
 - Q1에 대한 결과 화면은 다음과 같습니다.
-
+<div align="center">
 ![Screenshot for result of Q1](screenshot/Screenshot_Q1.png)
-  
+</div>
     - 세 개의 구와 하나의 평면에 대하여 색 표현 없이 ray tracing 결과만 흰색으로 나타낸 화면입니다.
 
 - Q2에 대한 결과 화면은 다음과 같습니다.
-
+<div align="center">
 ![Screenshot for result of Q2](screenshot/Screenshot_Q2.png)
+</div>
 
     - 세 개의 구와 하나의 평면의 색상을 지정하고, Phong shading을 통해 빛이 들어옴에 따른 shading 효과를 설정하고, 그림자를 생성하였습니다. 또한 gamma correction을 수행하였습니다.
 
 - Q3에 대한 결과 화면은 다음과 같습니다.
-
+<div align="center">
 ![Screenshot for result of Q3](screenshot/Screenshot_Q3.png)
-
+</div>
     - Q2의 결과에서 각 pixel의 sampling을 0부터 1까지의 float 값을 랜덤으로 생성하여, 각 픽셀에 대하여 64번 sampling을 수행하여 anti-aliasing을 적용하였습니다.
     - 그림자 부분을 비교하면 anti-aliasing이 적용된 것이 확연하게 드러납니다.
 
