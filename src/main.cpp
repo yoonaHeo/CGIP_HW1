@@ -258,6 +258,34 @@ int main() {
             Ray ray;
             HitSurface hsf;
             Color finalColor = {0, 0, 0};
+            
+            ray = camera.getRay(ix, iy);
+
+            hsf = intersect(ray, scene, 0.0f, INFINITY);
+
+            // this part is code to get results of Q2 (without anti-aliasing)
+            // if(hsf.hit) {
+            //     finalColor.r = calculateShading(ray, scene, hsf, light).r;
+            //     finalColor.g = calculateShading(ray, scene, hsf, light).g;
+            //     finalColor.b = calculateShading(ray, scene, hsf, light).b;
+                
+            //     // have to be normalized before gamma correction
+            //     finalColor.r = (finalColor.r) > 1 ? 1 : finalColor.r;
+            //     finalColor.g = (finalColor.g) > 1 ? 1 : finalColor.g;
+            //     finalColor.b = (finalColor.b) > 1 ? 1 : finalColor.b;
+
+            //     finalColor.r = gammaCorrect(finalColor.r, gamma);
+            //     finalColor.g = gammaCorrect(finalColor.g, gamma);
+            //     finalColor.b = gammaCorrect(finalColor.b, gamma);
+
+            //     image[idx] = 255 * (finalColor.r);
+            //     image[idx + 1] = 255 * (finalColor.g);
+            //     image[idx + 2] = 255 * (finalColor.b);
+            // } else {
+            //     image[idx] = 0;
+            //     image[idx + 1] = 0;
+            //     image[idx + 2] = 0;
+            // }
 
             // for each sample, compute ray and check intersection with sphere
             for (int sample = 0; sample < sampleNum; sample++) {
