@@ -5,16 +5,19 @@
 
 #include <glm/glm.hpp>
 
+using namespace glm;
+
 // sphere needs center point and radius
 // center point has to be a vector which represents position in 3D space
 class Sphere {
 public:
-    glm::vec3 center;
+    vec3 center;
     int radius;
     struct Color {
         float r, g, b;
     } color;
-    glm::vec3 ka, kd, ks;
+    vec3 ka, kd, ks;
+    int specular;
 };
 
 #endif // __SPHERE_H__

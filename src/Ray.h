@@ -5,10 +5,12 @@
 
 #include <glm/glm.hpp>
 
+using namespace glm;
+
 struct Ray {
 public:
-    glm::vec3 origin = glm::vec3(0, 0, 0);
-    glm::vec3 direction;
+    vec3 origin = glm::vec3(0, 0, 0);
+    vec3 direction;
 };
 
 #endif // __RAY_H__

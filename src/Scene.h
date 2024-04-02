@@ -1,15 +1,15 @@
-#ifndef __GROUP_H__
-#define __GROUP_H__
+#ifndef __SCENE_H__
+#define __SCENE_H__
 
 #pragma once
 
 #include "Sphere.h"
 #include "Plane.h"
 
-class Group {
+class Scene {
 public:
     Sphere sphere[3];
     Plane plane;
 };
 
-#endif // __GROUP_H__
+#endif // __SCENE_H__
