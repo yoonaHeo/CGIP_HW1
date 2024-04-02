@@ -65,7 +65,7 @@ array<int, 4> hitSurface(Ray ray, Scene scene) {
 
     float discriminant2 = glm::dot(ray.direction, plane.normal);
 
-    if(discriminant2 <= 0) {
+    if(discriminant2 != 0) {
         hit[3] = 1;
     } else {
         hit[3] = 0;
@@ -94,7 +94,7 @@ array<float, 4> calculateT(Ray ray, Scene scene) {
     return t;   //this will return t values of intersection if ray hits each surface
 }
 
-glm::vec3 evaluateRay(Ray ray, float t) {
+vec3 evaluateRay(Ray ray, float t) {
     return ray.origin + t * ray.direction;
 }
 
