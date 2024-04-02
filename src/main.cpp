@@ -19,12 +19,10 @@ unsigned char image[Nx * Ny * 3];
 struct HitSurface {
     bool hit;
     float t;    // t value of intersection (point to be hit)
+    struct Color {
+        float r, g, b;
+    } color;
 };
-
-// color value of each pixel
-struct Color {
-    unsigned char r, g, b;
-} color;
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -103,14 +101,23 @@ HitSurface groupIntersect(Ray ray, Group group, float tMin, float tMax) {
                 hsf.hit = true;
                 hsf.t = tBest;
                 
-                color = {255, 255, 255};
+                if (i == 3) {
+                    hsf.color.r = group.plane.color.r;
+                    hsf.color.g = group.plane.color.g;
+                    hsf.color.b = group.plane.color.b;
+                } else {
+                    hsf.color.r = group.sphere[i].color.r;
+                    hsf.color.g = group.sphere[i].color.g;
+                    hsf.color.b = group.sphere[i].color.b;
+                }
                 std::cout << "tBest: " << tBest << std::endl;
             }
         }
     }
-
+    
     return hsf;
 }
+
 
 int main() {
     glfwInit();
@@ -150,11 +157,11 @@ int main() {
 
     Camera camera;
 
-    Sphere S1 = {glm::vec3(-4, 0, -7), 1};
-    Sphere S2 = {glm::vec3(0, 0, -7), 2};
-    Sphere S3 = {glm::vec3(4, 0, -7), 1};
+    Sphere S1 = {glm::vec3(-4, 0, -7), 1, {255, 0, 0}, {0.2, 0, 0}, {1, 0, 0}, {0, 0, 0}};
+    Sphere S2 = {glm::vec3(0, 0, -7), 2, {0, 255, 0}, {0, 0.2, 0}, {0, 0.5, 0}, {0.5, 0.5, 0.5}};
+    Sphere S3 = {glm::vec3(4, 0, -7), 1, {0, 0, 255}, {0, 0, 0.2}, {0, 0, 1}, {0, 0, 0}};
 
-    Plane P = {glm::vec3(0, 1, 0), glm::vec3(0, -2, 0)};
+    Plane P = {glm::vec3(0, 1, 0), glm::vec3(0, -2, 0), {255, 255, 255}, {0.2, 0.2, 0.2}, {1, 1, 1}, {0, 0, 0}};
 
     Group group = {S1, S2, S3, P};
 
@@ -171,9 +178,9 @@ int main() {
             HitSurface hsf = groupIntersect(ray, group, 0.0f, INFINITY);
 
             if(hsf.hit) {
-                image[idx] = color.r;
-                image[idx + 1] = color.g;
-                image[idx + 2] = color.b;
+                image[idx] = hsf.color.r;
+                image[idx + 1] = hsf.color.g;
+                image[idx + 2] = hsf.color.b;
             } else {
                 image[idx] = 0;
                 image[idx + 1] = 0;

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.23)
 
-set(PROJECT_NAME CGIP_hw1)
+set(PROJECT_NAME CGIP_HW1)
 set(CMAKE_CXX_STANDARD 17)
 
 set(WINDOW_NAME "CGIP_HW1")

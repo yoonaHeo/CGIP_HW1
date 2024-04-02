@@ -11,6 +11,10 @@ class Sphere {
 public:
     glm::vec3 center;
     int radius;
+    struct Color {
+        float r, g, b;
+    } color;
+    glm::vec3 ka, kd, ks;
 };
 
 #endif // __SPHERE_H__
