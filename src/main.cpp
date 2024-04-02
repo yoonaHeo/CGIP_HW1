@@ -253,15 +253,13 @@ int main() {
     for(int iy = 0; iy < Ny; iy++) {
         for(int ix = 0; ix < Nx; ix++) {
             int idx = (iy * Ny + ix) * 3;
-            // compute ray using values above (camera.l, camera.r, camera.b, camera.t, camera.d)
-            // computed ray values are ray for each pixel
+
             Ray ray;
             HitSurface hsf;
             Color finalColor = {0, 0, 0};
             
-            ray = camera.getRay(ix, iy);
-
-            hsf = intersect(ray, scene, 0.0f, INFINITY);
+            //ray = camera.getRay(ix, iy);
+            //hsf = intersect(ray, scene, 0.0f, INFINITY);
 
             // this part is code to get results of Q2 (without anti-aliasing)
             // if(hsf.hit) {
