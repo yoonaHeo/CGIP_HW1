@@ -74,7 +74,7 @@ Debug 모드이므로 하단의 DEBUG CONSOLE에서 출력 및 동작을 확인할 수 있습니다.
     - Ray.h 파일은 Ray를 나타냅니다. 해당 헤더는 Camera.h에서 호출되어 ray tracing에 기여합니다.
     - Camera.h 파일은 카메라, 즉 시점을 지정합니다.
     
-    이 헤더 파일에서 getRay와 getRandomRay 함수를 선언하였고, 이를 통해 ray tracing이 가능해집니다.
+        이 헤더 파일에서 getRay와 getRandomRay 함수를 선언하였고, 이를 통해 ray tracing이 가능해집니다.
     - Light.h 파일은 광원을 나타냅니다.
     - Plane.h 파일은 평면을 나타냅니다.
     - Sphere.h 파일은 구를 나타냅니다.
@@ -82,7 +82,7 @@ Debug 모드이므로 하단의 DEBUG CONSOLE에서 출력 및 동작을 확인할 수 있습니다.
 
     - main.cpp 파일이 동작의 핵심이 되는 파일입니다.
 
-    아래는 main.cpp 파일의 각 함수에 대하여 설명하기 위한 내용입니다.
+        아래는 main.cpp 파일의 각 함수에 대하여 설명하기 위한 내용입니다.
 
 - array<int, 4> hitSurface(Ray ray, Scene scene) 함수
     
