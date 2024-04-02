@@ -7,10 +7,13 @@
 ---
 
 ### 문서 목차
-[- 환경 설정](#환경-설정)
-[- 실행 방법](#실행-방법)
-[- 결과 화면](#결과-화면)
-[- Code 설명](#code-설명)
+- [환경 설정](#환경-설정)
+
+- [실행 방법](#실행-방법)
+
+- [결과 화면](#결과-화면)
+
+- [Code 설명](#code-설명)
 
 ---
 
@@ -90,6 +93,7 @@ Debug 모드이므로 하단의 DEBUG CONSOLE에서 출력 및 동작을 확인할 수 있습니다.
     array<int, 4> hit = {0, 0, 0, 0};
     ```
     구에 대하여 계산하는 경우, 구의 방정식을 적용하여 도출한 t에 대한 식이 at^2 + bt + c = 0이라고 하였을 때, 근의 공식을 통해 실제로 hit하는지 아닌지를 확인합니다.
+
     만일 근의 공식에서 sqrt 내부에 들어가야 하는 판별식이 0보다 작다면 hit하지 않는 것이므로, 이에 맞게 값을 지정합니다.
     ```
     for(int i = 0; i < 3; i++) {
@@ -289,6 +293,7 @@ Debug 모드이므로 하단의 DEBUG CONSOLE에서 출력 및 동작을 확인할 수 있습니다.
     중요한 부분은 pixel을 채워 이미지를 생성하는 부분이므로, 해당 코드만을 아래에서 다루겠습니다.
 
     카메라와 object(3 개의 구와 하나의 평면)를 선언하고, 생성한 각 object를 scene에 집어 넣습니다.
+
     광원에 대한 내용도 추가하고, gamma correction을 위한 gamma 값 또한 선언합니다.
     ```
     Camera camera;
@@ -306,9 +311,13 @@ Debug 모드이므로 하단의 DEBUG CONSOLE에서 출력 및 동작을 확인할 수 있습니다.
     float gamma = 2.2f;
     ```
     각 pixel에 대하여 random ray를 지정하고, 이 random ray에 object의 표면이 hit하는지 아닌지를 sampleNum만큼 확인합니다.
+
     hit하는 경우 기존 finalColor 변수에 각각의 shading 결과를 모두 더합니다.
+
     Normalization을 위하여 hit한 pixel에 대해서만 sampleNum만큼으로 나누고, 1보다 큰 값은 저장하지 않도록 합니다.
+
     이후 gamma correction을 거치고 최종적으로 255만큼 곱하면 hit한 pixel에 대한 RGB 값을 설정할 수 있습니다.
+
     hit하지 않은 부분은 RGB 값을 모두 0으로 둡니다.
     ```
     for(int iy = 0; iy < Ny; iy++) {
